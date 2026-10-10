@@ -1,0 +1,36 @@
+
+html {
+  min-width: 360px;
+  min-height: 100%;
+  background: #f5f7fb;
+}
+
+body {
+  min-width: 360px;
+  min-height: 100vh;
+  margin: 0;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+button,
+input,
+textarea,
+select {
+  font: inherit;
+}
+
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible {
+  outline: 3px solid #b5c9ff;
+  outline-offset: 2px;
+}
+
+::selection {
+  color: #263b91;
+  background: #e1e7ff;
+}
