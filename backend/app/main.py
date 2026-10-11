@@ -9,6 +9,7 @@ from .database import get_db, init_db
 from .schemas import ReleasePackage
 from .validation import validate_package
 
+import os 
 
 app = FastAPI(
     title="ReleaseReady API",
@@ -16,11 +17,17 @@ app = FastAPI(
     version="0.1.0",
 )
 
+frontend_origin = os.getenv(
+    "FRONTEND_ORIGIN",
+    "https://release-ready-ruby.vercel.app",
+).strip().rstrip("/")
+
 app.add_middleware(
     CORSMiddleware,
     allow_origins=[
         "http://localhost:5173",
         "http://127.0.0.1:5173",
+        frontend_origin,
     ],
     allow_credentials=True,
     allow_methods=["*"],
