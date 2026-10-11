@@ -1,4 +1,4 @@
-﻿
+﻿import os
 import json
 from datetime import datetime, timezone
 from .ai_analysis import router as ai_router
@@ -22,6 +22,11 @@ frontend_origin = os.getenv(
     "https://release-ready-ruby.vercel.app",
 ).strip().rstrip("/")
 
+frontend_origin = os.getenv(
+    "FRONTEND_ORIGIN",
+    "https://release-ready-ruby.vercel.app",
+).strip().rstrip("/")
+
 app.add_middleware(
     CORSMiddleware,
     allow_origins=[
@@ -33,6 +38,7 @@ app.add_middleware(
     allow_methods=["*"],
     allow_headers=["*"],
 )
+
 app.include_router(ai_router)
 init_db()
 
